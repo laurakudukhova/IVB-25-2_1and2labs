@@ -30,6 +30,7 @@ public class Main {
                     break;
                 case 4:
                     candidate.checkRepeatElection();
+                    System.out.println("Ауе татары");
                     break;
                 case 5:
                     candidate.sortByVotes();
