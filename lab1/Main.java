@@ -13,6 +13,7 @@ public class Main {
             System.out.println("5. Упорядочить кандидатов по голосам");
             System.out.println("6. Выход");
             System.out.println("Выберите пункт меню (1..6)");
+            System.out.println("Строка");
 
             int c = (new Scanner(System.in)).nextInt();
 
