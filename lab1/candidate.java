@@ -147,12 +147,7 @@ public class candidate {
         }
     }
 
-    public static void printcandidates() {
-        System.out.println("\nРезультат выборов:");
-        for (int i = 0; i < candidates.length; i++) {
-            System.out.println(candidates[i]);
-        }
-    }
+
 
     // вычисляет сумму голосов и сравнивает с общим числом избирателей
     public static void checkViolations() {
