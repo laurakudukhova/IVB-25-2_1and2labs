@@ -30,7 +30,7 @@ public class Main {
             }
 
             switch (c) {
-                case 1 -> candidate.fillcandidates();
+                case 1 -> candidateService.fillcandidates();
                 case 2 -> candidateService.printcandidates();
                 case 3 -> candidate.checkViolations();
                 case 4 -> candidate.checkRepeatElection();
