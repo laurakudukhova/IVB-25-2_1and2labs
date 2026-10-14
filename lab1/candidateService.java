@@ -7,6 +7,7 @@ import java.util.Arrays;
 import java.util.Scanner;
 
 public class candidateService {
+    private static int totalVoters;
     private static final DateTimeFormatter DATE_FORMAT =
             DateTimeFormatter.ofPattern("dd.MM.uuuu");
     private static candidate[] candidates;
@@ -80,5 +81,35 @@ public class candidateService {
                 candidates[i] = new candidate(surname, birthday, votes);
             }
         }
+    public static void checkViolations() {
+        int sumVotes = 0;
+        for (int i = 0; i < candidates.length; i++) {
+            sumVotes += candidates[i].getVotes();
+        }
+        System.out.println("\nПроверка нарушений:");
+        System.out.println("Всего голосов за кандидатов: " + sumVotes);
+        System.out.println("Общее количество избирателей: " + totalVoters);
+
+        if (sumVotes > totalVoters)
+            System.out.println("НАРУШЕНИЕ ОБНАРУЖЕНО!");
+        else
+            System.out.println("Нарушений не обнаружено.");
+    }
+
+    public static void checkRepeatElection() {
+        boolean winnerExists = false;
+        double limit = totalVoters / 3.0;
+        for (int i = 0; i < candidates.length; i++) {
+            if (candidates[i].getVotes() > limit) {
+                winnerExists = true;
+                break;
+            }
+        }
+        System.out.println("\nПроверка необходимости повторных выборов:");
+        if (winnerExists)
+            System.out.println("Повторные выборы НЕ требуются.");
+        else
+            System.out.println("Требуется проведение повторных выборов.");
+    }
     }
 
