@@ -202,7 +202,7 @@ public class candidate {
         }
     }
 
-    // НОВЫЙ МЕТОД: определяет победителя, считает явку и проценты
+    // определяет победителя, считает явку и проценты
     public static void showWinner() {
 
         if (candidates.length == 0) {
@@ -260,5 +260,82 @@ public class candidate {
                     winner.getVotes(),
                     winner.getVotes() * 100.0 / sumVotes);
         }
+    }
+
+    // поиск кандидата по фамилии
+    public static void findBySurname() {
+        if (candidates.length == 0) {
+            System.out.println("\nСписок кандидатов пуст.");
+            return;
+        }
+
+        Scanner sc = new Scanner(System.in, "UTF-8");
+        System.out.print("Введите фамилию для поиска: ");
+        String target = sc.nextLine().trim();
+
+        if (target.isEmpty()) {
+            System.out.println("Фамилия не введена.");
+            return;
+        }
+
+        boolean found = false;
+        System.out.println("\nРезультаты поиска:");
+        for (int i = 0; i < candidates.length; i++) {
+            if (candidates[i].getSurname().equalsIgnoreCase(target)) {
+                System.out.println(candidates[i]);
+                found = true;
+            }
+        }
+
+        if (!found) {
+            System.out.println("Кандидат с фамилией \"" + target + "\" не найден.");
+        }
+    }
+
+    // удаление кандидата по фамилии
+    public static void deleteCandidate() {
+        if (candidates.length == 0) {
+            System.out.println("\nСписок кандидатов пуст.");
+            return;
+        }
+
+        Scanner sc = new Scanner(System.in, "UTF-8");
+        System.out.print("Введите фамилию кандидата для удаления: ");
+        String target = sc.nextLine().trim();
+
+        if (target.isEmpty()) {
+            System.out.println("Фамилия не введена.");
+            return;
+        }
+
+        int index = -1;
+        for (int i = 0; i < candidates.length; i++) {
+            if (candidates[i].getSurname().equalsIgnoreCase(target)) {
+                index = i;
+                break;
+            }
+        }
+
+        if (index == -1) {
+            System.out.println("Кандидат с фамилией \"" + target + "\" не найден.");
+            return;
+        }
+
+        System.out.println("Найден кандидат:");
+        System.out.println(candidates[index]);
+        System.out.print("Удалить его? (y/n): ");
+        String answer = sc.nextLine().trim();
+
+        if (!answer.equalsIgnoreCase("y")) {
+            System.out.println("Удаление отменено.");
+            return;
+        }
+
+        for (int i = index; i < candidates.length - 1; i++) {
+            candidates[i] = candidates[i + 1];
+        }
+        candidates = Arrays.copyOf(candidates, candidates.length - 1);
+
+        System.out.println("Кандидат \"" + target + "\" удалён.");
     }
 }
