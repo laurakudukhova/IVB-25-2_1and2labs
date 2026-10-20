@@ -90,6 +90,34 @@ public class candidateService {
                     winner.getVotes() * 100.0 / sumVotes);
         }
     }
+    public static void findBySurname() {
+        if (candidates.length == 0) {
+            System.out.println("\nСписок кандидатов пуст.");
+            return;
+        }
+
+        Scanner sc = new Scanner(System.in, "UTF-8");
+        System.out.print("Введите фамилию для поиска: ");
+        String target = sc.nextLine().trim();
+
+        if (target.isEmpty()) {
+            System.out.println("Фамилия не введена.");
+            return;
+        }
+
+        boolean found = false;
+        System.out.println("\nРезультаты поиска:");
+        for (int i = 0; i < candidates.length; i++) {
+            if (candidates[i].getSurname().equalsIgnoreCase(target)) {
+                System.out.println(candidates[i]);
+                found = true;
+            }
+        }
+
+        if (!found) {
+            System.out.println("Кандидат с фамилией \"" + target + "\" не найден.");
+        }
+    }
 
     public static void fillcandidates() {
             Scanner sc = new Scanner(System.in, "UTF-8");
