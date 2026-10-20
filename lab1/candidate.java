@@ -84,64 +84,7 @@ public class candidate {
 
 
     // определяет победителя, считает явку и проценты
-    public static void showWinner() {
 
-        if (candidates.length == 0) {
-            System.out.println("\nСписок кандидатов пуст.");
-            return;
-        }
-
-        int sumVotes = 0;
-        for (int i = 0; i < candidates.length; i++) {
-            sumVotes += candidates[i].getVotes();
-        }
-
-        if (sumVotes == 0) {
-            System.out.println("\nНи один кандидат не набрал голосов.");
-            return;
-        }
-
-        candidate winner = candidates[0];
-        for (int i = 1; i < candidates.length; i++) {
-            if (candidates[i].getVotes() > winner.getVotes()) {
-                winner = candidates[i];
-            }
-        }
-
-        int winnerCount = 0;
-        for (int i = 0; i < candidates.length; i++) {
-            if (candidates[i].getVotes() == winner.getVotes()) {
-                winnerCount++;
-            }
-        }
-
-        System.out.println("\nРезультаты голосования:");
-        System.out.printf("Явка: %d из %d избирателей (%.2f%%)%n",
-                sumVotes, totalVoters,
-                sumVotes * 100.0 / totalVoters);
-        System.out.println("-".repeat(60));
-
-        for (int i = 0; i < candidates.length; i++) {
-            double percent = candidates[i].getVotes() * 100.0 / sumVotes;
-            System.out.printf("%-12s — %4d голосов (%.2f%%)%n",
-                    candidates[i].getSurname(),
-                    candidates[i].getVotes(),
-                    percent);
-        }
-
-        System.out.println("-".repeat(60));
-
-        if (winnerCount > 1) {
-            System.out.println("НИЧЬЯ: несколько кандидатов набрали одинаковое "
-                    + "максимальное количество голосов (" + winner.getVotes() + ").");
-            System.out.println("Требуется второй тур голосования.");
-        } else {
-            System.out.printf("ПОБЕДИТЕЛЬ: %s (%d голосов, %.2f%% от числа проголосовавших)%n",
-                    winner.getSurname(),
-                    winner.getVotes(),
-                    winner.getVotes() * 100.0 / sumVotes);
-        }
-    }
 
     // поиск кандидата по фамилии
     public static void findBySurname() {

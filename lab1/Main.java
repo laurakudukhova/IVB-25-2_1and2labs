@@ -35,7 +35,7 @@ public class Main {
                 case 3 -> candidateService.checkViolations();
                 case 4 -> candidateService.checkRepeatElection();
                 case 5 -> candidateService.sortByVotes();
-                case 6 -> candidate.showWinner();
+                case 6 -> candidateService.showWinner();
                 case 7 -> candidate.findBySurname();
                 case 8 -> candidate.deleteCandidate();
                 case 9 -> { break cycle; }
