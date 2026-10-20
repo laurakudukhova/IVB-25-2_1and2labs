@@ -37,7 +37,7 @@ public class Main {
                 case 5 -> candidateService.sortByVotes();
                 case 6 -> candidateService.showWinner();
                 case 7 -> candidateService.findBySurname();
-                case 8 -> candidate.deleteCandidate();
+                case 8 -> candidateService.deleteCandidate();
                 case 9 -> { break cycle; }
                 default -> System.out.println("Нет такого пункта меню.\n");
             }
