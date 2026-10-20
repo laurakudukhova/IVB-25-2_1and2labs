@@ -32,9 +32,9 @@ public class Main {
             switch (c) {
                 case 1 -> candidateService.fillcandidates();
                 case 2 -> candidateService.printcandidates();
-                case 3 -> candidate.checkViolations();
-                case 4 -> candidate.checkRepeatElection();
-                case 5 -> candidate.sortByVotes();
+                case 3 -> candidateService.checkViolations();
+                case 4 -> candidateService.checkRepeatElection();
+                case 5 -> candidateService.sortByVotes();
                 case 6 -> candidate.showWinner();
                 case 7 -> candidate.findBySurname();
                 case 8 -> candidate.deleteCandidate();

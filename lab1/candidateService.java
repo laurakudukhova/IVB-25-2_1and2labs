@@ -17,7 +17,23 @@ public class candidateService {
             System.out.println(candidates[i]);
         }
     }
-        public static void fillcandidates() {
+    public static void sortByVotes() {
+        for (int i = 0; i < candidates.length - 1; i++) {
+            for (int j = 0; j < candidates.length - 1 - i; j++) {
+                if (candidates[j].getVotes() < candidates[j + 1].getVotes()) {
+                    candidate temp = candidates[j];
+                    candidates[j] = candidates[j + 1];
+                    candidates[j + 1] = temp;
+                }
+            }
+        }
+        System.out.println("\nКандидаты, упорядоченные по убыванию голосов:");
+        for (int i = 0; i < candidates.length; i++) {
+            System.out.println(candidates[i]);
+        }
+    }
+
+    public static void fillcandidates() {
             Scanner sc = new Scanner(System.in, "UTF-8");
             System.out.print("Введите количество кандидатов: ");
 
@@ -112,4 +128,5 @@ public class candidateService {
             System.out.println("Требуется проведение повторных выборов.");
     }
     }
+
 
