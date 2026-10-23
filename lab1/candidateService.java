@@ -16,6 +16,9 @@ public class candidateService {
         for (int i = 0; i < candidates.length; i++) {
             System.out.println(candidates[i]);
         }
+
+
+
     }
     public static void sortByVotes() {
         for (int i = 0; i < candidates.length - 1; i++) {
